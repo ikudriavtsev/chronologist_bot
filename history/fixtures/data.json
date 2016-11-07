@@ -1,0 +1,116 @@
+{
+    "date": "May 27",
+    "url": "https://wikipedia.org/wiki/May_27",
+    "data": {
+        "Events": [
+            {
+                "year": "927",
+                "text": "Death of Simeon I the Great, the first Bulgarian to be recognized as Emperor.",
+                "links": [
+                    {
+                        "title": "Simeon I the Great",
+                        "link": "https://wikipedia.com/wiki/Simeon_I_the_Great"
+                    }
+                ]
+            },
+            {
+                "year": "1120",
+                "text": "Richard III of Capua is anointed as Prince two weeks before his untimely death.",
+                "links": [
+                    {
+                        "title": "Richard III of Capua",
+                        "link": "https://wikipedia.com/wiki/Richard_III_of_Capua"
+                    },
+                    {
+                        "title": "Prince of Capua",
+                        "link": "https://wikipedia.com/wiki/Prince_of_Capua"
+                    }
+                ]
+            },
+            {
+                "year": "1153",
+                "text": "Malcolm IV becomes King of Scotland.",
+                "links": [
+                    {
+                        "title": "Malcolm IV of Scotland",
+                        "link": "https://wikipedia.com/wiki/Malcolm_IV_of_Scotland"
+                    }
+                ]
+            }
+        ],
+        "Births": [
+            {
+                "year": "1443",
+                "text": "Margaret Beaufort, Countess of Richmond and Derby (d. 1509)",
+                "links": [
+                    {
+                        "title": "Margaret Beaufort, Countess of Richmond and Derby",
+                        "link": "https://wikipedia.com/wiki/Margaret_Beaufort,_Countess_of_Richmond_and_Derby"
+                    }
+                ]
+            },
+            {
+                "year": "1469",
+                "text": "Manuel I of Portugal (d. 1521)",
+                "links": [
+                    {
+                        "title": "Manuel I of Portugal",
+                        "link": "https://wikipedia.com/wiki/Manuel_I_of_Portugal"
+                    }
+                ]
+            },
+            {
+                "year": "1527",
+                "text": "Agnes of Hesse (d. 1555)",
+                "links": [
+                    {
+                        "title": "Agnes of Hesse",
+                        "link": "https://wikipedia.com/wiki/Agnes_of_Hesse"
+                    }
+                ]
+            },
+            {
+                "year": "1970",
+                "text": "Michele Bartoli, Italian cyclist",
+                "links": [
+                    {
+                        "title": "Michele Bartoli",
+                        "link": "https://wikipedia.com/wiki/Michele_Bartoli"
+                    }
+                ]
+            }
+        ],
+        "Deaths": [
+            {
+                "year": "366 BC",
+                "text": "Procopius, Roman usurper (b. 325)",
+                "links": [
+                    {
+                        "title": "Procopius (usurper)",
+                        "link": "https://wikipedia.com/wiki/Procopius_(usurper)"
+                    }
+                ]
+            },
+            {
+                "year": "866",
+                "text": "Ordoño I of Asturias (b. 831)",
+                "links": [
+                    {
+                        "title": "Ordoño I of Asturias",
+                        "link": "https://wikipedia.com/wiki/Ordo%C3%B1o_I_of_Asturias"
+                    }
+                ]
+            },
+            {
+                "year": "927",
+                "text": "Simeon I of Bulgaria (b. 864)",
+                "links": [
+                    {
+                        "title": "Simeon I of Bulgaria",
+                        "link": "https://wikipedia.com/wiki/Simeon_I_of_Bulgaria"
+                    }
+                ]
+            }
+        ]
+    }
+}

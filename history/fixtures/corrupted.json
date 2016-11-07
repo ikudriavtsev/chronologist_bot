@@ -1,0 +1,132 @@
+{
+    "date": "July 7",
+    "url": "https://wikipedia.org/wiki/July_7",
+    "data": {
+        "Events": [
+            {
+                "year": "1124",
+                "text": "Tyre falls to the Crusaders.",
+                "links": [
+                    {
+                        "title": "Tyre, Lebanon",
+                        "link": "https://wikipedia.com/wiki/Tyre,_Lebanon"
+                    },
+                    {
+                        "title": "Crusaders",
+                        "link": "https://wikipedia.com/wiki/Crusaders"
+                    }
+                ]
+            }
+        ],
+        "Births": [
+            {
+                "year": "1053",
+                "text": "Emperor Shirakawa of Japan (d. 1129)",
+                "links": [
+                    {
+                        "title": "Emperor Shirakawa",
+                        "link": "https://wikipedia.com/wiki/Emperor_Shirakawa"
+                    }
+                ]
+            }
+        ],
+        "Deaths": [
+            {
+                "year": "1304",
+                "text": "Pope Benedict XI (b. 1240)",
+                "links": [
+                    {
+                        "title": "Pope Benedict XI",
+                        "link": "https://wikipedia.com/wiki/Pope_Benedict_XI"
+                    }
+                ]
+            },
+            {
+                "year": "1865",
+                "text": "conspirators in the assassination of Abraham Lincoln\n\n– George Atzerodt (b. 1833)\n– David Herold (b. 1842)\n– Lewis Payne (b. 1844)\n– Mary Surratt (b. 1823)\n\n",
+                "links": [
+                    {
+                        "title": "Assassination of Abraham Lincoln",
+                        "link": "https://wikipedia.com/wiki/Assassination_of_Abraham_Lincoln"
+                    },
+                    {
+                        "title": "George Atzerodt",
+                        "link": "https://wikipedia.com/wiki/George_Atzerodt"
+                    },
+                    {
+                        "title": "David Herold",
+                        "link": "https://wikipedia.com/wiki/David_Herold"
+                    },
+                    {
+                        "title": "Lewis Powell (conspirator)",
+                        "link": "https://wikipedia.com/wiki/Lewis_Powell_(conspirator)"
+                    },
+                    {
+                        "title": "Mary Surratt",
+                        "link": "https://wikipedia.com/wiki/Mary_Surratt"
+                    }
+                ]
+            },
+            {
+                "year": "– George Atzerodt (b. 1833)",
+                "text": null,
+                "links": [
+                    {
+                        "title": "George Atzerodt",
+                        "link": "https://wikipedia.com/wiki/George_Atzerodt"
+                    }
+                ]
+            },
+            {
+                "year": "– David Herold (b. 1842)",
+                "text": null,
+                "links": [
+                    {
+                        "title": "David Herold",
+                        "link": "https://wikipedia.com/wiki/David_Herold"
+                    }
+                ]
+            },
+            {
+                "year": "– Lewis Payne (b. 1844)",
+                "text": null,
+                "links": [
+                    {
+                        "title": "Lewis Powell (conspirator)",
+                        "link": "https://wikipedia.com/wiki/Lewis_Powell_(conspirator)"
+                    }
+                ]
+            },
+            {
+                "year": "– Mary Surratt (b. 1823)",
+                "text": null,
+                "links": [
+                    {
+                        "title": "Mary Surratt",
+                        "link": "https://wikipedia.com/wiki/Mary_Surratt"
+                    }
+                ]
+            },
+            {
+                "year": "2003",
+                "text": "Izhak Graziani, Bulgarian trumpet player and conductor (b. 1924)",
+                "links": [
+                    {
+                        "title": "Izhak Graziani",
+                        "link": "https://wikipedia.com/wiki/Izhak_Graziani"
+                    }
+                ]
+            },
+            {
+                "year": "2003",
+                "text": "Vlado Kristl, Croatian painter, animator, and director (b. 1923)",
+                "links": [
+                    {
+                        "title": "Vlado Kristl",
+                        "link": "https://wikipedia.com/wiki/Vlado_Kristl"
+                    }
+                ]
+            }
+        ]
+    }
+}
