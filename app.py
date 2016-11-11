@@ -47,6 +47,7 @@ class Bot(Resource):
 
     def post(self):
         events = request.json['entry'][0]['messaging']
+        app.logger.debug('POST request: %s' % request.json)
         for event in events:
             if (event.get('message') and event['message'].get('text')):
                 rqsts = self._build_messages(event['sender']['id'], event['message']['text'])
