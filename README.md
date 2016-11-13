@@ -33,4 +33,4 @@ __Actual deployment__:
 1. Check that local changes work:
     * Run the tests
     * Run `heroku local`
-2. Deploy: `git push heroku`
+2. Deploy: `git push heroku public_master:master`
