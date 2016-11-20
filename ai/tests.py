@@ -135,13 +135,13 @@ class TestResponse(unittest.TestCase):
     def test_action_is_returned(self):
         bot = BotAI('TOKEN')
         self.when_get_returns(loads(valid_response))
-        action = bot.extract_action("Yesterday 100 years ago?")
+        action = bot.extract_action(Mock(), "Yesterday 100 years ago?")
         self.assertEqual(action.name, 'fetch.history')
 
     def test_datetime_is_returned(self):
         bot = BotAI('TOKEN')
         self.when_get_returns(loads(valid_response))
-        res = bot.extract_action("Yesterday 100 years ago?")
+        res = bot.extract_action(Mock(), "Yesterday 100 years ago?")
         self.assertEqual(res.date.year, 1916)
         self.assertEqual(res.date.month, 5)
         self.assertEqual(res.date.day, 30)
@@ -149,7 +149,7 @@ class TestResponse(unittest.TestCase):
     def test_response_without_action(self):
         bot = BotAI('TOKEN')
         self.when_get_returns(loads(no_action))
-        res = bot.extract_action("Let's drink some beer")
+        res = bot.extract_action(Mock(), "Let's drink some beer")
         self.assertIsNone(res.name)
         self.assertIsNone(res.date)
         self.assertIsNotNone(res.fulfillment)

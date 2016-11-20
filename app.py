@@ -67,7 +67,7 @@ class Bot(Resource):
     def _build_messages(self, recipient_id, incoming):
         '''Constructs the response message according to the incoming message. Returns the messenger request.'''
         recipient = messages.Recipient(recipient_id=recipient_id)
-        action = self.bot_ai.extract_action(incoming)
+        action = self.bot_ai.extract_action(recipient_id, incoming)
 
         if action.fulfillment:
             app.logger.info('Parsed action: fulfillment')

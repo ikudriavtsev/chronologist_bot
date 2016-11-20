@@ -2,6 +2,11 @@ from datetime import datetime
 from dateutil.parser import parse
 from urllib.parse import urljoin
 import requests
+import uuid
+
+
+# api.ai session ids per user.
+SESSION_IDS = {}
 
 
 class Action:
@@ -38,13 +43,14 @@ class BotAI:
         self.api_url = api_url
         self.token = token
 
-    def extract_action(self, message):
-        json = self._query(message)
+    def extract_action(self, recipient_id, message):
+        json = self._query(recipient_id, message)
         return Action(json['result'])
 
-    def _query(self, message):
+    def _query(self, recipient_id, message):
         url = urljoin(self.api_url,
-                      'v1/query?v=20150910&query={query}&lang=en'.format(query=message))
+                      'v1/query?v=20150910&query={query}&lang=en&sessionId={session_id}'
+                      .format(query=message, session_id=SESSION_IDS.setdefault(recipient_id, str(uuid.uuid1()))))
         headers = {'Authorization': 'Bearer %s' % self.token}
         r = requests.get(url, headers=headers)
         if r.status_code == requests.codes.ok:
