@@ -49,5 +49,5 @@ class BotAI:
         r = requests.get(url, headers=headers)
         if r.status_code == requests.codes.ok:
             return r.json()
-        raise ValueError('Got invalid status code {status_code} when trying to access the endpoint {endpoint}'
-                         .format(endpoint=url, status_code=r.status_code))
+        raise ValueError('Got invalid status code {status_code} when trying to access the endpoint {endpoint} with json \
+            response {response}'.format(endpoint=url, response=r.json(), status_code=r.status_code))
