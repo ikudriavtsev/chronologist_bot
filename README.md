@@ -12,13 +12,23 @@ Simple backend to communicate with the Facebook ['Chronologist'](https://develop
 
 To run the application execute this command from the source directory:
 
-`CHRONOLOGIST_BACKEND_SETTINGS=dev.cfg python app.py`
+    python app.py
+
+You need to set the following environment variables for the command above to work:
+
+    CHRONOLOGIST_ACCESS_TOKEN (Facebook app access token)
+    CHRONOLOGIST_API_AI_TOKEN (API.ai account token)
+    CHRONOLOGIST_VERIFY_TOKEN (Facebook app verify token)
+
+To use the settings from the heroku app:
+
+    env `heroku config -s` python app.py
 
 ## Tests
 
 To run the application's tests use this command:
 
-`python -m unittest discover`
+    python -m unittest discover
 
 ## Deploying to heroku
 
