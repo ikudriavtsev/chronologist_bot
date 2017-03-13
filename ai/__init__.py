@@ -1,5 +1,6 @@
 from datetime import datetime
 from dateutil.parser import parse
+from flask import current_app
 from urllib.parse import urljoin
 import requests
 import uuid
@@ -45,6 +46,9 @@ class BotAI:
 
     def extract_action(self, recipient_id, message):
         json = self._query(recipient_id, message)
+        # Check if the app context is available.
+        if current_app:
+            current_app.logger.debug('api.ai query: %s' % json)
         return Action(json['result'])
 
     def _query(self, recipient_id, message):
