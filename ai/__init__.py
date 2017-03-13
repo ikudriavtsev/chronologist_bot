@@ -16,8 +16,9 @@ class Action:
         self.date = None
         fulfillment = data.get('fulfillment')
         self.fulfillment = fulfillment.get('speech') if fulfillment else None
-        date_param = data.get('parameters').get('date') if data.get('parameters') else None
-        self.make_date(date_param) if date_param else None
+        if self.name == 'history':
+            date_param = data.get('parameters').get('date') if data.get('parameters') else None
+            self.make_date(date_param) if date_param else None
 
     def make_date(self, params):
         self.year = None
