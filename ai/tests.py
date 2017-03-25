@@ -8,7 +8,7 @@ from json import loads
 valid_response = """{
     "id": "c22bb38a-52d2-4b6f-adb8-a55055e8f106",
     "result": {
-        "action": "fetch.history",
+        "action": "history",
         "actionIncomplete": false,
         "contexts": [],
         "parameters": {
@@ -51,7 +51,7 @@ class TestAction(unittest.TestCase):
     '''Test action extraction from api.ai response'''
 
     def test_only_day_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "day": "2017-03-20"
             }}})
@@ -64,7 +64,7 @@ class TestAction(unittest.TestCase):
         today = Mock()
         today().year = 2014
         dt.today = today
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "day": "2015-03-20"
             }}})
@@ -73,7 +73,7 @@ class TestAction(unittest.TestCase):
         self.assertEqual(action.date.day, 20)
 
     def test_day_with_years_ago_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "day": "2017-03-20",
                 "years_ago": 75
@@ -83,7 +83,7 @@ class TestAction(unittest.TestCase):
         self.assertEqual(action.date.day, 20)
 
     def test_day_with_exact_year_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "day": "2017-03-20",
                 "year_exact": 1945
@@ -93,7 +93,7 @@ class TestAction(unittest.TestCase):
         self.assertEqual(action.date.day, 20)
 
     def test_day_with_exact_year_bc_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "day": "2017-03-20",
                 "year_exact": 25,
@@ -104,7 +104,7 @@ class TestAction(unittest.TestCase):
         self.assertEqual(action.date.day, 20)
 
     def test_date_with_only_exact_year_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "year_exact": 1910,
             }}})
@@ -113,7 +113,7 @@ class TestAction(unittest.TestCase):
         self.assertEqual(action.date.day, date.today().day)
 
     def test_date_with_only_exact_ago_parsed(self):
-        action = Action({'parameters': {
+        action = Action({'action': 'history', 'parameters': {
             'date': {
                 "years_ago": 10,
             }}})
@@ -136,7 +136,7 @@ class TestResponse(unittest.TestCase):
         bot = BotAI('TOKEN')
         self.when_get_returns(loads(valid_response))
         action = bot.extract_action(Mock(), "Yesterday 100 years ago?")
-        self.assertEqual(action.name, 'fetch.history')
+        self.assertEqual(action.name, 'history')
 
     def test_datetime_is_returned(self):
         bot = BotAI('TOKEN')
