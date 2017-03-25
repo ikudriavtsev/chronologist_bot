@@ -27,6 +27,37 @@ valid_response = """{
     "timestamp": "2016-05-30T20:30:37.258Z"
 }"""
 
+invalid_response = """{
+    "id": "cd3573f7-d576-4593-b482-f6c948925512",
+    "timestamp": "2017-03-25T10:11:24.669Z",
+    "lang": "en",
+    "result": {
+        "source": "agent",
+        "resolvedQuery": "Why at rhe battle in the 1510 the Spanish wins?",
+        "action": "history",
+        "actionIncomplete": false,
+        "parameters": {
+            "date": "battle in"
+        },
+        "contexts": [],
+        "metadata": {
+            "intentId": "e1b89aa6-1d3e-4004-ab3f-96aad93445b1",
+            "webhookUsed": "false",
+            "webhookForSlotFillingUsed": "false",
+            "intentName": "history"
+        },
+        "fulfillment": {
+            "speech": ""
+        },
+        "score": 1
+    },
+    "status": {
+        "code": 200,
+        "errorType": "success"
+    },
+    "sessionId": "12f2cb24-ebb4-4506-acdb-eebc4c2bcd79"
+}"""
+
 no_action = """{
     "id": "fc38998b-0987-4969-83b1-525f6001f0b4",
     "result": {
@@ -151,6 +182,14 @@ class TestResponse(unittest.TestCase):
         self.when_get_returns(loads(no_action))
         res = bot.extract_action(Mock(), "Let's drink some beer")
         self.assertIsNone(res.name)
+        self.assertIsNone(res.date)
+        self.assertIsNotNone(res.fulfillment)
+
+    def test_response_invalid_action(self):
+        bot = BotAI('TOKEN')
+        self.when_get_returns(loads(invalid_response))
+        res = bot.extract_action(Mock(), "Let's drink some beer")
+        self.assertEqual(res.name, 'history')
         self.assertIsNone(res.date)
         self.assertIsNotNone(res.fulfillment)
 

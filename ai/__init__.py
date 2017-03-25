@@ -18,7 +18,12 @@ class Action:
         self.fulfillment = fulfillment.get('speech') if fulfillment else None
         if self.name == 'history':
             date_param = data.get('parameters').get('date') if data.get('parameters') else None
-            self.make_date(date_param) if date_param else None
+            # `date_param` should be a dict of parsed date parameters.
+            if date_param and isinstance(date_param, dict):
+                self.make_date(date_param)
+            elif date_param and current_app:
+                self.name = None
+                current_app.logger.error('The date parameters were parsed incorrectly: %s' % date_param)
 
     def make_date(self, params):
         self.year = None
