@@ -1,10 +1,8 @@
+from ai import BotAI
 from flask import Flask, request
 from flask_restful import abort, reqparse, Resource, Api
-from messengerbot import MessengerClient, messages
-
 from history import API as History_API
-from ai import BotAI
-
+from messengerbot import MessengerClient, messages
 import logging
 import os
 
@@ -13,14 +11,16 @@ app = Flask(__name__)
 # Configure app.
 _access_token = os.environ.get('CHRONOLOGIST_ACCESS_TOKEN')
 _verify_token = os.environ.get('CHRONOLOGIST_VERIFY_TOKEN')
-_api_ai_token = os.environ.get('CHRONOLOGIST_API_AI_TOKEN')
+_google_application_credentials = os.environ.get('CHRONOLOGIST_GOOGLE_APPLICATION_CREDENTIALS')
 
-if _access_token is None:
-    raise RecursionError('`CHRONOLOGIST_ACCESS_TOKEN` env var is not set')
+if _access_token is None and __name__ == '__main__':
+    raise RuntimeError('`CHRONOLOGIST_ACCESS_TOKEN` env var is not set')
 app.config.update(
     DEBUG=eval(os.environ.get('CHRONOLOGIST_DEBUG', 'False')),
     VERIFY_TOKEN=_verify_token,
-    ACCESS_TOKEN=_access_token
+    ACCESS_TOKEN=_access_token,
+    DIALOGFLOW_PROJECT_ID='chronologist-mvqppm',
+    DIALOGFLOW_LANGUAGE_CODE='en'
 )
 api = Api(app)
 history_api = History_API()
@@ -33,7 +33,7 @@ app.logger.setLevel(logging.DEBUG if app.config['DEBUG'] else logging.INFO)
 
 class Bot(Resource):
     def __init__(self):
-        self.bot_ai = BotAI(_api_ai_token)
+        self.bot_ai = BotAI()
 
     def get(self):
         parser = reqparse.RequestParser()
@@ -61,7 +61,7 @@ class Bot(Resource):
         for item in history_api.date(date.month, date.day, year):
             items.append(messages.Message(text=str(item)))
         if not items:
-            items.append(messages.Message(text='Nothing special found for this date in history'))
+            items.append(messages.Message(text='Nothing special found in history for this date'))
         return items
 
     def _build_messages(self, recipient_id, incoming):
