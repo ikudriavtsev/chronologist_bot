@@ -3,7 +3,7 @@ cachetools==4.0.0
 certifi==2019.11.28
 chardet==3.0.4
 dialogflow==0.7.2
-Flask==0.10.1
+Flask==1.0
 Flask-RESTful==0.3.5
 google-api-core==1.16.0
 google-auth==1.11.3
