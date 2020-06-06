@@ -30,6 +30,11 @@ app.logger.handlers.extend(gunicorn_error_logger.handlers)
 app.logger.setLevel(logging.DEBUG if app.config['DEBUG'] else logging.INFO)
 
 
+class FacebookOG(Resource):
+    def get(self):
+        return "OK!", 200
+
+
 class Bot(Resource):
     def __init__(self):
         self.bot_ai = BotAI()
@@ -84,7 +89,8 @@ class Bot(Resource):
         return [messages.MessageRequest(recipient, item) for item in items]
 
 
-api.add_resource(Bot, '/')
+api.add_resource(FacebookOG, '/')
+api.add_resource(Bot, '/bot')
 
 
 if __name__ == '__main__':
