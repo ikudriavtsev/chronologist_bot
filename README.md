@@ -20,9 +20,14 @@ You need to set the following environment variables for the command above to wor
     CHRONOLOGIST_VERIFY_TOKEN (Facebook app verify token)
     GOOGLE_APPLICATION_CREDENTIALS (Dialogflow integration)
 
-To use the settings from the heroku app:
+To use settings from the heroku app environment variables:
 
     env `heroku config -s` python app.py
+**NOTE**: this will **not** set `GOOGLE_APPLICATION_CREDENTIALS`, as it expects a json file. However, this file is base64 encoded as heroku environment variable, so it can be used as follows:
+
+    env `heroku config -s`
+    echo $GOOGLE_PRIVATE_KEY | base64 --decode > private_key.json
+    python app.py
 
 ## Tests
 

@@ -11,7 +11,6 @@ app = Flask(__name__)
 # Configure app.
 _access_token = os.environ.get('CHRONOLOGIST_ACCESS_TOKEN')
 _verify_token = os.environ.get('CHRONOLOGIST_VERIFY_TOKEN')
-_google_application_credentials = os.environ.get('CHRONOLOGIST_GOOGLE_APPLICATION_CREDENTIALS')
 
 if _access_token is None and __name__ == '__main__':
     raise RuntimeError('`CHRONOLOGIST_ACCESS_TOKEN` env var is not set')
